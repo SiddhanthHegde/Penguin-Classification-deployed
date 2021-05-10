@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Penguin Species Classification</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style>
+    div {
+      background-image: url('giphy.gif');
+    }
+</style>  
+
+</head>
+
+
+<body>
+
+ <div class="login">
+    <center>
+	<h1>Penguin Species Classification</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <label for="Island">Which island did the penguin belong to?</label>
+        <br>
+    	<input list="Islands" name="Island" id = "Island" placeholder="Choose from the list" required="required" />
+        <datalist id="Islands">
+            <option value="Torgersen">
+            <option value="Biscoe">
+            <option value="Chrome">
+        </datalist>
+        <br> <br>
+        
+        <label for="Culmen L">Enter the Culmen Length in mm</label> <br>
+        <input type="number" name="Culmen Length (in mm)" placeholder="Usually between 20 to 70" required="required" style="width: 200px;"/>
+        <br><br>
+
+        <label for="Culmen D">Enter the Culmen Depth in mm</label> <br>
+		<input type="number" name="Culmen Depth (in mm)" placeholder="Usually between 10 to 30" required="required" style="width: 200px;" />
+        <br><br>
+
+        <label for="Flipper L">Enter the Flipper Length in mm</label> <br>
+        <input type="number" name="Flipper Length (in mm)" placeholder="Usually between 150 to 250" required="required" style="width: 200px;" />
+        <br><br>
+
+        <label for="Body Mass">Enter the Body Mass in g</label> <br>
+        <input type="number" name="Body Mass (g)" placeholder="Usually between 2500 to 6500" required="required" style="width: 200px;" />
+        <br><br>
+
+        <label for="Delta 15">Enter the difference in the Nitrogen isotopes</label> <br>
+        <input type="number" name="Delta 15 N (o/oo)" placeholder="Usually between 7 to 11" style="width: 200px;"/>
+        <br><br>
+
+        <label for="Delta 15">Enter the difference in the Carbon isotopes</label> <br>
+        <input type="number" name="Delta 13 C (o/oo)" placeholder="Usually between -27 to -22" style="width: 200px;"/>
+        <br><br>
+
+        <label for="Delta 15">Enter the date of research</label> <br>
+        <input type="date" name="Date" placeholder="Date" required="required" />
+        <br><br>
+        
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    </center>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
