@@ -41,7 +41,7 @@ def predict():
     if pred == 2:
         category = 'Gentoo penguin (Pygoscelis papua)'
 
-    return render_template('output.html', prediction_text='Penguin Species is {}'.format(category))
+    return render_template('output.html', prediction_text='Penguin Species is {}'.format(category),)
 
 
 if __name__ == "__main__":
