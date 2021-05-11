@@ -1,80 +1,115 @@
-<!DOCTYPE html>
-<html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
-<head>
-  <meta charset="UTF-8">
-  <title>Penguin Species Classification</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
 
-<style>
-    div {
-      background-image: url('giphy.gif');
-    }
-</style>  
-
-</head>
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
 
 
-<body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
 
- <div class="login">
-    <center>
-	<h1>Penguin Species Classification</h1>
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
+    <title>Contact Form #6</title>
+  </head>
+  <body>
+  
 
-        <label for="Island">Which island did the penguin belong to?</label>
-        <br>
-    	<input list="Islands" name="Island" id = "Island" placeholder="Choose from the list" required="required" />
-        <datalist id="Islands">
-            <option value="Torgersen">
-            <option value="Biscoe">
-            <option value="Chrome">
-        </datalist>
-        <br> <br>
-        
-        <label for="Culmen L">Enter the Culmen Length in mm</label> <br>
-        <input type="number" name="Culmen Length (in mm)" placeholder="Usually between 20 to 70" required="required" style="width: 200px;"/>
-        <br><br>
+  <div class="content">
+    
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
 
-        <label for="Culmen D">Enter the Culmen Depth in mm</label> <br>
-		<input type="number" name="Culmen Depth (in mm)" placeholder="Usually between 10 to 30" required="required" style="width: 200px;" />
-        <br><br>
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              
+              <h3 class="heading mb-4">Let's talk about Penguins!</h3>
 
-        <label for="Flipper L">Enter the Flipper Length in mm</label> <br>
-        <input type="number" name="Flipper Length (in mm)" placeholder="Usually between 150 to 250" required="required" style="width: 200px;" />
-        <br><br>
-
-        <label for="Body Mass">Enter the Body Mass in g</label> <br>
-        <input type="number" name="Body Mass (g)" placeholder="Usually between 2500 to 6500" required="required" style="width: 200px;" />
-        <br><br>
-
-        <label for="Delta 15">Enter the difference in the Nitrogen isotopes</label> <br>
-        <input type="number" name="Delta 15 N (o/oo)" placeholder="Usually between 7 to 11" style="width: 200px;"/>
-        <br><br>
-
-        <label for="Delta 15">Enter the difference in the Carbon isotopes</label> <br>
-        <input type="number" name="Delta 13 C (o/oo)" placeholder="Usually between -27 to -22" style="width: 200px;"/>
-        <br><br>
-
-        <label for="Delta 15">Enter the date of research</label> <br>
-        <input type="date" name="Date" placeholder="Date" required="required" />
-        <br><br>
-        
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
-    </center>
-
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
+              <p><img src="giphy.gif" alt="Image" class="img-fluid" style="width: 90%;"></p>
 
 
-</body>
+            </div>
+            <div class="col-md-6">
+              
+              <form class="mb-5" method="post" id="contactForm" name="contactForm" action ="{{ url_for('predict')}}">
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                  <input list="Islands" name="Island" id = "Island" class="form-control" placeholder="Choose island from the list" required="required" />
+                    <datalist id="Islands">
+                        <option value="Torgersen">
+                        <option value="Biscoe">
+                        <option value="Chrome">
+                    </datalist>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="number" name="Culmen Length (in mm)" placeholder="Culmen Length (usually between 20-70mm)" required="required" class="form-control"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+		                <input type="number" name="Culmen Depth (in mm)" placeholder="Culmen Depth (usually between 10-30mm)" required="required" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="number" name="Flipper Length (in mm)" placeholder="Flipper Length (usually between 150-250mm)" required="required" class="form-control" />
+                  </div>
+                </div><div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="number" name="Body Mass (g)" placeholder="Body Mass (usually between 2500-6500g)" required="required" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="number" name="Delta 15 N (o/oo)" placeholder="Nitrogen Difference (usually between 7-11)" class="form-control"/>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="number" name="Delta 13 C (o/oo)" placeholder="Nitrogen Difference (usually between -27 - -22)" class="form-control"/>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <label for="Delta 15" style="padding-left: 0.75rem;">Enter the date of research</label>
+                    <input type="date" name="Date" placeholder="Date" required="required" class="form-control"/>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-12">
+                    <input type="submit" value="Predict Species" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+
+              <div id="form-message-warning mt-4"></div> 
+              <div id="form-message-success">
+                Your message was sent, thank you!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+  </body>
 </html>
