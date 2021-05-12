@@ -19,7 +19,7 @@ def predict():
         inp_features.append(0)
     elif features[0] == 'Dream':
         inp_features.append(1)
-    else features[0] == 'Torgersen':
+    else:
         inp_features.append(2)
     
     for feature in features[1:7]:
