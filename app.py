@@ -17,9 +17,9 @@ def predict():
     features = [x for x in request.form.values()]
     if features[0] == 'Biscoe':
         inp_features.append(0)
-    if features[0] == 'Dream':
+    elif features[0] == 'Dream':
         inp_features.append(1)
-    if features[0] == 'Torgersen':
+    else features[0] == 'Torgersen':
         inp_features.append(2)
     
     for feature in features[1:7]:
